@@ -1,0 +1,147 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+/* @import "tw-animate-css"; */
+
+* {
+  font-family: "Lato", sans-serif;
+}
+
+body {
+  background-color: #f3f4f6;
+}
+
+@theme {
+  --color-light-gray: #f3f4f6;
+  --color-gray: #e6e6e6;
+  --color-dark-gray: #e5e7eb;
+  --color-gigatron-yellow: #ffc220;
+  --color-main-blue: #0d2a4f;
+  --color-card-blue: #193b66;
+  --color-cta-purple: #302664;
+  --color-banner-blue: #0c4978;
+  --color-banner-purple: #d7d8ea;
+
+  --breakpoint-xs: 480px;
+}
+
+@layer utilities {
+  .flex-between {
+    @apply flex items-center justify-between;
+  }
+
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+}
+
+.grid-section {
+  @apply grid grid-cols-3 grid-rows-6 gap-6;
+  grid-template-areas:
+    "carousel-1 carousel-1 accessories"
+    "carousel-1 carousel-1 accessories"
+    "carousel-2 carousel-2 carousel-2"
+    "carousel-2 carousel-2 carousel-2"
+    "medics-care kitchen-utils house-utils"
+    "iron kitchen-utils house-utils";
+}
+
+.carousel-1 {
+  grid-area: carousel-1;
+}
+
+.accessories {
+  grid-area: accessories;
+}
+
+.carousel-2 {
+  grid-area: carousel-2;
+}
+
+.medics-care {
+  grid-area: medics-care;
+}
+
+.iron {
+  grid-area: iron;
+}
+
+.kitchen-utils {
+  grid-area: kitchen-utils;
+}
+
+.house-utils {
+  grid-area: house-utils;
+}
+
+@media screen and (max-width: 1024px) {
+  .grid-section {
+    @apply grid-cols-2 grid-rows-9;
+    grid-template-areas:
+      "carousel-1 carousel-1"
+      "carousel-1 carousel-1"
+      "accessories accessories"
+      "accessories accessories"
+      "carousel-2 carousel-2"
+      "carousel-2 carousel-2"
+      "kitchen-utils house-utils"
+      "kitchen-utils house-utils"
+      "iron medics-care";
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .grid-section {
+    @apply grid-cols-1 grid-rows-7;
+    grid-template-areas:
+      "carousel-1"
+      "accessories"
+      "carousel-2"
+      "kitchen-utils"
+      "house-utils"
+      "iron"
+      "medics-care";
+  }
+}
+
+.embla__dots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4px;
+}
+
+.embla__dot {
+  appearance: none;
+  background-color: transparent;
+  touch-action: manipulation;
+  display: inline-flex;
+  text-decoration: none;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.embla__dot:after {
+  box-shadow: inset 0 0 0 2px rgb(234, 234, 234);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  content: "";
+}
+
+.embla__dot--selected:after {
+  background: white;
+}
+
+.filter-white {
+  filter: invert(100%) sepia(2%) saturate(7465%) hue-rotate(89deg)
+    brightness(118%) contrast(100%);
+}
